@@ -52,46 +52,46 @@ The dataset contains **10,000 Amazon reviews** for Meta Ray-Ban Smart Glasses ac
 
 ## Features at a Glance
 
-### Backend (✅ Complete)
+### Backend (Complete)
 
 | Feature | Status |
 |---|---|
-| Express.js server on port 5000 | ✅ |
-| MongoDB connection with retry logic | ✅ |
-| Mongoose schemas (Review + User) with validation | ✅ |
-| 10,000-record dataset seeding with data transformation | ✅ |
-| Review CRUD (Create, Read, Update, Soft Delete) | ✅ |
-| JWT authentication (register, login, token verification) | ✅ |
-| Role-based access control (admin, analyst) | ✅ |
-| Dynamic filtering (rating, sentiment, date range, country, name, hasImage) | ✅ |
-| Sorting (date, rating, helpfulness_score, helpful_aug) | ✅ |
-| Full-text search on title + review | ✅ |
-| Pagination with metadata (page, limit, total, totalPages, hasNext, hasPrev) | ✅ |
-| 7 MongoDB aggregation pipelines (analytics) | ✅ |
-| Rate limiting (100 req / 15 min per IP) | ✅ |
-| Request logging middleware | ✅ |
-| Global error handling with consistent error format | ✅ |
-| CORS configuration | ✅ |
-| 41 comprehensive tests (Jest + Supertest) | ✅ |
-| Postman collection with auto-token capture | ✅ |
-| 18 of 20 "Good-to-Have" features implemented | ✅ |
+| Express.js server on port 5000 | ✓ |
+| MongoDB connection with retry logic | ✓ |
+| Mongoose schemas (Review + User) with validation | ✓ |
+| 10,000-record dataset seeding with data transformation | ✓ |
+| Review CRUD (Create, Read, Update, Soft Delete) | ✓ |
+| JWT authentication (register, login, token verification) | ✓ |
+| Role-based access control (admin, analyst) | ✓ |
+| Dynamic filtering (rating, sentiment, date range, country, name, hasImage) | ✓ |
+| Sorting (date, rating, helpfulness_score, helpful_aug) | ✓ |
+| Full-text search on title + review | ✓ |
+| Pagination with metadata (page, limit, total, totalPages, hasNext, hasPrev) | ✓ |
+| 7 MongoDB aggregation pipelines (analytics) | ✓ |
+| Rate limiting (100 req / 15 min per IP) | ✓ |
+| Request logging middleware | ✓ |
+| Global error handling with consistent error format | ✓ |
+| CORS configuration | ✓ |
+| 41 comprehensive tests (Jest + Supertest) | ✓ |
+| Postman collection with auto-token capture | ✓ |
+| 18 of 20 "Good-to-Have" features implemented | ✓ |
 
-### Frontend (🔜 Phase 2)
+### Frontend (Phase 2)
 
 | Feature | Status |
 |---|---|
-| React + Vite project setup | 🔜 |
-| Tailwind CSS + MUI | 🔜 |
-| Redux Toolkit state management | 🔜 |
-| Login/Register auth UI | 🔜 |
-| Dashboard layout (sidebar, navbar, dark mode) | 🔜 |
-| Analytics dashboard with Recharts | 🔜 |
-| Reviews list with pagination, filters, search, sort | 🔜 |
-| Review CRUD forms | 🔜 |
-| Admin user management | 🔜 |
-| Error/loading/empty state system | 🔜 |
-| SEO (Helmet, OG tags, sitemap, schema.org) | 🔜 |
-| E2E integration testing | 🔜 |
+| React + Vite project setup | — |
+| Tailwind CSS + MUI | — |
+| Redux Toolkit state management | — |
+| Login/Register auth UI | — |
+| Dashboard layout (sidebar, navbar, dark mode) | — |
+| Analytics dashboard with Recharts | — |
+| Reviews list with pagination, filters, search, sort | — |
+| Review CRUD forms | — |
+| Admin user management | — |
+| Error/loading/empty state system | — |
+| SEO (Helmet, OG tags, sitemap, schema.org) | — |
+| E2E integration testing | — |
 
 ---
 
@@ -182,24 +182,24 @@ The `Review` schema stores all 15 fields from the dataset plus system timestamps
 
 | Field | Type | Constraints | Indexed |
 |---|---|---|---|
-| `reviewID` | String | Required | ✅ |
-| `name` | String | Required, trimmed | ✅ |
-| `date` | Date | Required — parsed from "March 9, 2025" | ✅ |
-| `verifiedPurchase` | Boolean | Cast from "True"/"False" | ❌ |
-| `rating` | Number | Enum: 1, 3, 4, 5 | ✅ |
-| `helpful` | Number | Parsed from comma-formatted string (e.g., "1,075" → 1075) | ❌ |
-| `title` | String | Trimmed, default '' | ✅ (text index with review) |
-| `review` | String | Default '' | ✅ (text index with title) |
-| `profile` | String | Reviewer profile URL | ❌ |
-| `country` | String | Default 'United States' | ❌ |
-| `reviewLink` | String | Original Amazon review URL | ❌ |
-| `reviewImage` | String | Optional image URL | ❌ |
-| `helpful_aug` | Number | Indexed | ✅ |
-| `is_positive_review` | Number | 0 or 1 | ✅ |
-| `helpfulness_score` | Number | 0.0–10.0 | ✅ |
-| `isDeleted` | Boolean | Soft-delete flag, default false | ✅ |
-| `createdAt` | Date | Auto timestamp (Mongoose timestamps) | ❌ |
-| `updatedAt` | Date | Auto timestamp (Mongoose timestamps) | ❌ |
+| `reviewID` | String | Required | ✓ |
+| `name` | String | Required, trimmed | ✓ |
+| `date` | Date | Required — parsed from "March 9, 2025" | ✓ |
+| `verifiedPurchase` | Boolean | Cast from "True"/"False" | ✗ |
+| `rating` | Number | Enum: 1, 3, 4, 5 | ✓ |
+| `helpful` | Number | Parsed from comma-formatted string (e.g., "1,075" → 1075) | ✗ |
+| `title` | String | Trimmed, default '' | ✓ (text index with review) |
+| `review` | String | Default '' | ✓ (text index with title) |
+| `profile` | String | Reviewer profile URL | ✗ |
+| `country` | String | Default 'United States' | ✗ |
+| `reviewLink` | String | Original Amazon review URL | ✗ |
+| `reviewImage` | String | Optional image URL | ✗ |
+| `helpful_aug` | Number | Indexed | ✓ |
+| `is_positive_review` | Number | 0 or 1 | ✓ |
+| `helpfulness_score` | Number | 0.0–10.0 | ✓ |
+| `isDeleted` | Boolean | Soft-delete flag, default false | ✓ |
+| `createdAt` | Date | Auto timestamp (Mongoose timestamps) | ✗ |
+| `updatedAt` | Date | Auto timestamp (Mongoose timestamps) | ✗ |
 
 ### Users Collection (Authentication)
 
