@@ -52,7 +52,7 @@ The dataset contains **10,000 Amazon reviews** for Meta Ray-Ban Smart Glasses ac
 
 ## Features at a Glance
 
-### Backend (✅ Complete — Days 1-15)
+### Backend (✅ Complete)
 
 | Feature | Status |
 |---|---|
@@ -76,7 +76,7 @@ The dataset contains **10,000 Amazon reviews** for Meta Ray-Ban Smart Glasses ac
 | Postman collection with auto-token capture | ✅ |
 | 18 of 20 "Good-to-Have" features implemented | ✅ |
 
-### Frontend (🔜 Phase 2 — Days 16-30)
+### Frontend (🔜 Phase 2)
 
 | Feature | Status |
 |---|---|
@@ -611,7 +611,7 @@ The test database is configured via `tests/setup.js`:
 
 ## Frontend (Phase 2)
 
-The frontend will be built during **Days 16-30** (May 28 – June 11, 2026) and will include:
+The frontend will include:
 
 - **React 18 + Vite** build tooling
 - **Tailwind CSS** with custom brand color tokens
@@ -648,7 +648,7 @@ refactor: code restructuring
 
 ### Pull Requests
 
-Each PR corresponds to a day's work and includes:
+Each PR includes:
 - **Title:** `[Category] Brief description`
 - **Description:** What was built, APIs added, key decisions
 
