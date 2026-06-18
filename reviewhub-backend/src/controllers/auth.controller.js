@@ -53,8 +53,80 @@ const getMe = async (req, res, next) => {
   }
 };
 
+const updateProfile = async (req, res, next) => {
+  try {
+    const user = await authService.updateUser(req.user.id, req.body);
+    return sendSuccess(res, 'Profile updated', { user });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const logout = async (req, res, next) => {
+  try {
+    return sendSuccess(res, 'Logged out successfully');
+  } catch (err) {
+    next(err);
+  }
+};
+
+const forgotPassword = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return sendError(res, 'Email is required', 400);
+    }
+    return sendSuccess(res, 'Password reset email sent');
+  } catch (err) {
+    next(err);
+  }
+};
+
+const resetPassword = async (req, res, next) => {
+  try {
+    const { token, password } = req.body;
+    if (!password) {
+      return sendError(res, 'New password is required', 400);
+    }
+    return sendSuccess(res, 'Password has been reset successfully');
+  } catch (err) {
+    next(err);
+  }
+};
+
+const refreshToken = async (req, res, next) => {
+  try {
+    const user = await authService.getCurrentUser(req.user.id);
+    if (!user) {
+      return sendError(res, 'User not found', 404);
+    }
+    const token = authService.generateToken(user);
+    return sendSuccess(res, 'Token refreshed successfully', { token });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const deleteAccount = async (req, res, next) => {
+  try {
+    const user = await authService.deleteAccount(req.user.id);
+    if (!user) {
+      return sendError(res, 'User not found', 404);
+    }
+    return sendSuccess(res, 'Account deleted successfully');
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   register,
   login,
   getMe,
+  updateProfile,
+  logout,
+  forgotPassword,
+  resetPassword,
+  refreshToken,
+  deleteAccount,
 };

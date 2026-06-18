@@ -53,9 +53,23 @@ const getCurrentUser = async (userId) => {
   return user;
 };
 
+const updateUser = async (userId, data) => {
+  const user = await User.findByIdAndUpdate(userId, data, {
+    new: true,
+    runValidators: true,
+  }).select('-password');
+  return user;
+};
+
+const deleteAccount = async (userId) => {
+  return await User.findByIdAndDelete(userId);
+};
+
 module.exports = {
   registerUser,
   loginUser,
   getCurrentUser,
+  updateUser,
   generateToken,
+  deleteAccount,
 };
