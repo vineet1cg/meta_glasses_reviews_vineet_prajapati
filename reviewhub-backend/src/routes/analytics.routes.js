@@ -3,7 +3,6 @@ const analyticsController = require('../controllers/analytics.controller');
 const { authenticate } = require('../middlewares/auth.middleware');
 
 const router = Router();
-
 router.use(authenticate);
 
 router.get('/overview', analyticsController.getOverview);

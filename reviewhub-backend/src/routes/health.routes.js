@@ -11,4 +11,12 @@ router.get('/health', (_req, res) => {
   });
 });
 
+router.get('/version', (_req, res) => {
+  res.json({
+    success: true,
+    version: '1.0.0',
+    name: 'ReviewHub API',
+  });
+});
+
 module.exports = router;
