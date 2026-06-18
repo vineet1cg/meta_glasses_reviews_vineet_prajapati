@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-glow: color-mix(in srgb, var(--primary) 30%, transparent);
+  --shadow-glow: 0 0 8px 1px var(--color-primary-glow);
+}
+
+:root {
+  /* Light Theme: Warm, Playful, Fresh */
+  --bg-base: #FFF7ED;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(251, 146, 60, 0.25);
+  --text-main: #44403C;
+  --text-muted: #78716C;
+  --primary: #FB923C; /* Warm, bold orange */
+  --primary-hover: #F97316;
+  --accent: #F59E0B; /* Warm amber */
+  --border-color: rgba(0, 0, 0, 0.05);
+  --glow-color: rgba(251, 146, 60, 0.15);
+  --fun-pink: #EC4899;
+  --fun-blue: #3B82F6;
+  --fun-green: #10B981;
+  
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  transition: background-color 0.6s cubic-bezier(0.23, 1, 0.32, 1), color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+[data-theme='dark'] {
+  /* Dark Theme: Cozy, Experimental */
+  --bg-base: #1F1226;
+  --bg-surface: rgba(46, 23, 61, 0.9);
+  --glass-bg: rgba(46, 23, 61, 0.75);
+  --glass-border: rgba(236, 72, 153, 0.2);
+  --text-main: #F5F0FF;
+  --text-muted: #C4B5FD;
+  --primary: #EC4899; /* Playful pink */
+  --primary-hover: #DB2777;
+  --accent: #8B5CF6; /* Fun purple */
+  --border-color: rgba(255, 255, 255, 0.05);
+  --glow-color: rgba(236, 72, 153, 0.15);
+  --fun-pink: #EC4899;
+  --fun-blue: #60A5FA;
+  --fun-green: #34D399;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Softened Glassmorphism Core */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.05);
+}
+
+.glass-card {
+  background: var(--bg-surface);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: 1.75rem;
+  transition: all 0.35s cubic-bezier(0.3, 0.7, 0.4, 1.5); /* Bouncy easing */
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) rotate(-0.75deg);
+  border-color: var(--primary);
+  box-shadow: 0 12px 28px -10px var(--glow-color);
+}
+
+/* Friendly Pill Buttons */
+.btn-pill {
+  border-radius: 9999px;
+  padding: 0.8rem 1.75rem;
+  font-weight: 700;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  transition-duration: 250ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 2px 10px 0 var(--glow-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.03);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-glass:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-glass:active {
+  transform: translateY(0);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+  opacity: 0.4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 1;
+}
